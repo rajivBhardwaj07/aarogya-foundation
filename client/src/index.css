@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Aarogya design system base layer. See /docs/design-system.md.
+  Warm, dignified, humane — Fraunces display + Public Sans body + mono for data.
+*/
+@layer base {
+  :root {
+    --ink: #103b33;
+    --healing: #1e6b5c;
+    --marigold: #e58a2e;
+    --paper: #f6f4ed;
+    --rose: #c75d54;
+    --slate: #5b6b66;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  /* Visible keyboard focus ring everywhere — accessibility floor. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-marigold ring-offset-2 ring-offset-paper;
+  }
+
+  ::selection {
+    background: var(--marigold);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-eyebrow font-semibold uppercase text-healing;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold
+      transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-healing text-paper hover:bg-ink shadow-card hover:shadow-lift;
+  }
+  .btn-donate {
+    @apply btn bg-marigold text-ink hover:brightness-105 shadow-card hover:shadow-lift;
+  }
+  .btn-ghost {
+    @apply btn border border-ink/[0.15] bg-transparent text-ink hover:border-ink/40 hover:bg-ink/5;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-paper hover:bg-healing;
+  }
+
+  .card {
+    @apply rounded-2xl border border-ink/[0.08] bg-white shadow-card;
+  }
+
+  /* Financial/data figures — monospace signals "real receipts". */
+  .data {
+    @apply font-mono tabular-nums;
+  }
+
+  .link-underline {
+    @apply underline decoration-marigold/60 decoration-2 underline-offset-4 hover:decoration-marigold;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
+  }
+  .field-input {
+    @apply w-full rounded-xl border border-ink/[0.15] bg-white px-4 py-2.5 text-ink
+      placeholder:text-slate/60 focus:border-healing focus:ring-2 focus:ring-healing/30;
+  }
+  .field-error {
+    @apply mt-1 text-sm text-rose;
+  }
+
+  .prose-aarogya {
+    @apply max-w-none leading-relaxed text-ink/90;
+  }
+  .prose-aarogya p {
+    @apply mb-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Respect users who prefer reduced motion — disable non-essential animation. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
