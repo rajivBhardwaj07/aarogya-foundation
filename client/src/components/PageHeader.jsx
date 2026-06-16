@@ -4,7 +4,7 @@ import { LifelineDivider } from './Lifeline.jsx';
 
 export default function PageHeader({ eyebrow, title, intro }) {
   return (
-    <header className="bg-paper">
+    <header>
       <div className="container-px pt-14 pb-6 md:pt-20">
         <div className="max-w-2xl motion-safe:animate-fade-up">
           {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}

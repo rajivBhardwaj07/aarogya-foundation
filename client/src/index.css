@@ -21,7 +21,11 @@
   }
 
   body {
-    @apply bg-paper text-ink font-body antialiased;
+    @apply text-ink font-body antialiased;
+    /* Bright, lively backdrop: warm marigold tint → white → soft healing mint. */
+    background: linear-gradient(165deg, #FFF6E6 0%, #FFFFFF 45%, #E6F6EF 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
     font-feature-settings: 'ss01', 'cv01';
   }
 

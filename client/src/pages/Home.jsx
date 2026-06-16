@@ -9,7 +9,7 @@ import { PROGRAM_ICONS, ArrowRight } from '../components/icons.jsx';
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-paper">
+    <section className="relative overflow-hidden">
       <div className="container-px pt-16 pb-10 md:pt-24">
         <div className="mx-auto max-w-3xl text-center motion-safe:animate-fade-up">
           <Eyebrow className="justify-center">Primary healthcare · since {ORG.founded}</Eyebrow>

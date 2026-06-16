@@ -12,7 +12,7 @@ export default {
         ink: '#103B33', // deep pine-teal — primary text & dark sections
         healing: '#1E6B5C', // mid teal — primary actions
         marigold: '#E58A2E', // warm saffron accent — hope (use sparingly)
-        paper: '#F6F4ED', // warm off-white background
+        paper: '#FFFDF7', // bright warm white background
         rose: '#C75D54', // care/alert highlight (rare)
         slate: '#5B6B66', // muted captions
         // tints for surfaces/borders
