@@ -1,0 +1,15 @@
+# Local development infrastructure.
+#   docker compose up -d        → starts MongoDB on :27017
+# The apps run on the host (npm run dev) and connect to this MongoDB.
+services:
+  mongo:
+    image: mongo:7
+    container_name: aarogya-mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - aarogya_mongo_data:/data/db
+
+volumes:
+  aarogya_mongo_data:
