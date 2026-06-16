@@ -7,6 +7,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "node --watch src/index.js",
+    "dev:mem": "node dev-mem.js",
     "start": "node src/index.js",
     "seed": "node src/seed.js",
     "test": "vitest run",

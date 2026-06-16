@@ -193,8 +193,8 @@ async function seedSubmissions() {
   console.log('[seed] submissions: 3 volunteers, 2 contacts, 3 donations');
 }
 
-async function main() {
-  await connectDB();
+/** Seed every collection. Assumes an active Mongoose connection. */
+export async function seedDatabase() {
   console.log(`[seed] using ${mongoose.connection.name}`);
   await seedUsers();
   await seedImpact();
@@ -203,11 +203,20 @@ async function main() {
   await seedPosts();
   await seedSubmissions();
   console.log('[seed] done ✓');
+}
+
+async function main() {
+  await connectDB();
+  await seedDatabase();
   await disconnectDB();
 }
 
-main().catch(async (err) => {
-  console.error('[seed] failed:', err);
-  await disconnectDB();
-  process.exit(1);
-});
+// Run as a CLI only when invoked directly (`npm run seed`), not when imported.
+const invokedDirectly = process.argv[1] && process.argv[1].endsWith('seed.js');
+if (invokedDirectly) {
+  main().catch(async (err) => {
+    console.error('[seed] failed:', err);
+    await disconnectDB();
+    process.exit(1);
+  });
+}
