@@ -1,6 +1,7 @@
 # Render Blueprint for the Express API.
 # In the Render dashboard: New → Blueprint → point at this repo.
-# Set the secret env vars (JWT_SECRET, RAZORPAY_*, SMTP_*, MONGODB_URI) in the UI.
+# Render injects PORT automatically; fill the sync:false secrets in the UI
+# (MONGODB_URI = your Atlas URI; CLIENT_URL = your Vercel URL once it exists).
 services:
   - type: web
     name: aarogya-api
@@ -13,8 +14,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 5000
       - key: CLIENT_URL
         sync: false
       - key: MONGODB_URI
